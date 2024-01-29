@@ -1,0 +1,35 @@
+{
+    "name": "python-dev-container",
+    "dockerComposeFile": "../../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/app",
+    "remoteUser": "vscode",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "njpwerner.autodocstring",
+                "charliermarsh.ruff",
+                "ms-python.black-formatter",
+                "ms-python.mypy-type-checker",
+                "oderwat.indent-rainbow"
+            ],
+            "settings":{
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.formatOnSaveMode": "file",
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll.ruff": true,
+                        "source.organizeImports.ruff": true
+                    }
+                },
+                "python.defaultInterpreterPath": ".venv/bin/python",
+                "python.testing.pytestPath": ".venv/bin/pytest",
+                "python.testing.pytestEnabled": true,
+                "python.testing.pytestArgs": ["cli-todo/tests", "--capture=tee-sys", "-vv"]
+            }
+        }
+    }
+}
